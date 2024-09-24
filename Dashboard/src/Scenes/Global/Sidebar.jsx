@@ -1,8 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-
-import { Box, IconButton, Typography, useTheme } from '@mui/material'
+import { Box, IconButton, Typography , useTheme} from '@mui/material'
 import {Link} from 'react-router-dom'
 import { tokens } from '../../Theme'
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
@@ -17,6 +16,7 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
 import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutlined';
+import profile from '../../assets/profile.png'
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -47,33 +47,15 @@ const ProSidebar = () => {
 
 
   return (
-    <Box
-      sx={{
-        "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
-        },
-        "& .pro-icon-wrapper": {
-          backgroundColor: "transparent !important",
-        },
-        "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
-        },
-        "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
-        },
-        "& .pro-menu-item.active": {
-          color: "#6870fa !important",
-        },
-      }}
-    >
-      <Sidebar collapsed={isCollapsed}>
+    <Box>
+     <Sidebar collapsed={isCollapsed} styles={{background: colors.primary[400]}}>
         <Menu>
         <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.gray[100],
+              color: colors.blueAccent[100],
             }}
           >
             {!isCollapsed && (
@@ -100,7 +82,7 @@ const ProSidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/profile.png`}
+                  src={profile}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -111,7 +93,7 @@ const ProSidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  Dheeraj
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   VP Fancy Admin
